@@ -18,7 +18,7 @@ Caso ainda não tenha o código em seu computador, clone o repositório:
 
 ```bash
 # Substitua pelo link do seu repositório
-git clone https://github.com/gabrieldeam/clube.git
+git clone https://github.com/gabrieldeam/constru.git
 cd backend
 ```
 
@@ -52,7 +52,7 @@ Certifique-se de que o PostgreSQL esteja rodando em sua máquina. Crie um banco 
 2. Execute o seguinte comando para criar o banco de dados:
 
    ```sql
-   CREATE DATABASE clube;
+   CREATE DATABASE constru;
    ```
 
 3. Verifique se você tem um usuário `postgres` com a senha `postgres`. Caso contrário, ajuste a URL de conexão no arquivo `.env` para corresponder à sua configuração.
@@ -62,7 +62,7 @@ Certifique-se de que o PostgreSQL esteja rodando em sua máquina. Crie um banco 
 Crie um arquivo `.env` na raiz da pasta `server` e adicione a seguinte configuração para a URL de conexão com o banco de dados PostgreSQL:
 
 ```
-DATABASE_URL=postgresql://postgres:postgres@localhost:5432/clube
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/constru
 ```
 
 ### 6. Executar a Aplicação
