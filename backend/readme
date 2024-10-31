@@ -1,0 +1,125 @@
+# Projeto Backend - Server (Python + Flask)
+
+Este documento fornece instruções detalhadas sobre como configurar e executar o backend deste projeto, desenvolvido com Python, Flask, Flask-RESTful, e PostgreSQL.
+
+## Requisitos
+
+Antes de iniciar, você precisará dos seguintes softwares instalados:
+
+- Python 3.9+
+- PostgreSQL
+- Git (opcional, mas recomendado)
+
+## Passos para Configuração do Ambiente
+
+### 1. Clone o Repositório
+
+Caso ainda não tenha o código em seu computador, clone o repositório:
+
+```bash
+# Substitua pelo link do seu repositório
+git clone https://github.com/gabrieldeam/clube.git
+cd backend
+```
+
+### 2. Criar Ambiente Virtual
+
+Dentro da pasta `backend`, crie um ambiente virtual e ative-o:
+
+```bash
+# Windows
+python -m venv venv
+venv\Scripts\activate
+
+# Linux/Mac
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Instalar Dependências
+
+Com o ambiente virtual ativo, instale todas as dependências necessárias usando o arquivo `requirements.txt`:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configurar o Banco de Dados
+
+Certifique-se de que o PostgreSQL esteja rodando em sua máquina. Crie um banco de dados chamado `clube`:
+
+1. Abra o terminal do PostgreSQL ou uma ferramenta GUI (como pgAdmin).
+2. Execute o seguinte comando para criar o banco de dados:
+
+   ```sql
+   CREATE DATABASE clube;
+   ```
+
+3. Verifique se você tem um usuário `postgres` com a senha `postgres`. Caso contrário, ajuste a URL de conexão no arquivo `.env` para corresponder à sua configuração.
+
+### 5. Configurar Variáveis de Ambiente
+
+Crie um arquivo `.env` na raiz da pasta `server` e adicione a seguinte configuração para a URL de conexão com o banco de dados PostgreSQL:
+
+```
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/clube
+```
+
+### 6. Executar a Aplicação
+
+Com o ambiente virtual ativo e o banco de dados configurado, execute o arquivo `app.py` para iniciar o servidor Flask:
+
+```bash
+python app.py
+```
+
+Você verá uma saída indicando que o servidor está rodando em [http://127.0.0.1:5000](http://127.0.0.1:5000). Acesse essa URL no seu navegador.
+
+### 7. Estrutura do Projeto
+
+O projeto está organizado da seguinte forma:
+
+```
+server/
+├── app.py
+├── config/
+│   └── config_db.py
+├── models/
+│   ├── __init__.py
+│   └── example_model.py
+├── routes/
+│   └── __init__.py
+├── controllers/
+│   └── example_controller.py
+├── venv/
+├── requirements.txt
+└── .env
+```
+
+- **app.py**: Ponto de entrada da aplicação.
+- **config/**: Configuração do banco de dados.
+- **models/**: Modelos utilizados para mapear tabelas do banco de dados.
+- **routes/**: Inicialização das rotas da API.
+- **controllers/**: Implementação da lógica das rotas.
+- **requirements.txt**: Lista de dependências da aplicação.
+- **.env**: Variáveis de ambiente sensíveis.
+
+### 8. Testar a API
+
+Para testar a API, use uma ferramenta como Postman, Insomnia ou Curl. Por exemplo, o endpoint `/example` pode ser acessado para verificar o funcionamento do backend:
+
+```bash
+curl http://127.0.0.1:5000/example
+```
+
+## Dicas para Desenvolvimento
+
+- **Debug**: O modo de debug está ativado no `app.py`, o que é ótimo para desenvolvimento. Para produção, desative o debug.
+- **Criação de Tabelas**: As tabelas são criadas automaticamente ao iniciar o servidor se ainda não existirem.
+
+## Problemas Comuns
+
+- **Erro 404**: Certifique-se de que você acessou o endpoint correto. A rota `/` precisa estar definida.
+- **ImportError**: Caso o VS Code não reconheça as dependências, certifique-se de que o interpretador Python correto está selecionado.
+
+Se tiver mais alguma dúvida, estou aqui para ajudar!
